@@ -9,19 +9,19 @@ namespace ProjectService.Models
     public class DBoperations
     {
         ProjectEntities pro = new ProjectEntities();
-        public string register(Login l)
+        public string register(LOGIN2 l)
         {
-            ProjectEntities pro=new ProjectEntities();
+            ProjectEntities pro = new ProjectEntities();
             l.password=BCrypt.Net.BCrypt.HashPassword(l.password);
-            pro.Logins.Add(l);
+            pro.LOGIN2.Add(l);
             pro.SaveChanges();
             return "success";
         }
 
-       
-            public Boolean validateUser(Loginvalidation  credentials, out Login user)
+
+        public Boolean validateUser(Loginvalidation  credentials)
             {
-                user=pro.Logins.FirstOrDefault(x => x.email==credentials.email);
+                Login user=pro.Logins.FirstOrDefault(x => x.email==credentials.email);
                 if (user==null)
                 {
                     return false;
@@ -44,6 +44,9 @@ namespace ProjectService.Models
         }
 
 
-        
+        public List<Login> GetAll()
+        {
+            return pro.Logins.ToList();
+        }
     }
 }

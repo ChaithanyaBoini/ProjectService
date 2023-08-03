@@ -16,10 +16,21 @@ namespace ProjectService.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[Route("api/values/value1")]
+        //[HttpGet]
+        //public string GetValue1(int id)
+        //{
+        //    return "value1";
+        //}
+
+        //[Route("api/values/value2")]
+        //[HttpGet]
+        //public string GetValue2(int id)
+        //{
+        //    return "value2";
+        //}
+
+
 
         // POST api/values
         public void Post([FromBody] string value)

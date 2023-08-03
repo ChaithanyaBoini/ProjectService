@@ -15,37 +15,49 @@ namespace ProjectService.Controllers
 {
     public class ProjectController : ApiController
     {
-        //[HttpPost]
-        //public IHttpActionResult Signup(Login l)
-        //{
-        //    DBoperations dBoperations = new DBoperations();
-        //    String s = dBoperations.register(l);
-        //    return Ok(s);
-        //}
         [HttpPost]
-        public IHttpActionResult login(Loginvalidation logval)
+        public IHttpActionResult Signup(LOGIN2 l)
         {
             DBoperations dBoperations = new DBoperations();
-            Login l = null;
-            bool flag = dBoperations.validateUser(logval, out l);
-            if (flag)
-            {
-                Login typ = dBoperations.extracttype(logval);
-                 return Ok(typ);
-                //if (typ.type.Equals("ADMIN"))
-                //{
-
-                //    return Ok("ADMIN");
-                //}
-                //else
-                //{
-
-                //    return Ok("MANAGER");
-                //}
-
-            }
-            // ModelState.AddModelError("", "No user found");
-            return Ok();
+            String s = dBoperations.register(l);
+            return Ok(s);
         }
+        //    [HttpPost]
+        //    public IHttpActionResult login(Loginvalidation logval)
+
+        //    {
+        //        DBoperations dBoperations = new DBoperations();
+        //        Login l = null;
+        //        bool flag = dBoperations.validateUser(logval);
+        //        if (flag)
+        //        {
+        //            Login typ = dBoperations.extracttype(logval);
+        //            return Ok(typ);
+        //            //if (typ.type.Equals("ADMIN"))
+        //            //{
+
+        //            //    return Ok("ADMIN");
+        //            //}
+        //            //else
+        //            //{
+
+        //            //    return Ok("MANAGER");
+        //            //}
+
+        //        }
+        //        // ModelState.AddModelError("", "No user found");
+        //        else
+        //        {
+        //            return Content(HttpStatusCode.BadRequest, new Login());
+        //        }
+
+
+        //    }
+        //    [HttpGet]
+        //    public IHttpActionResult GetAll()
+        //    {
+        //        DBoperations dBoperations = new DBoperations();
+        //        return Ok(dBoperations.GetAll());
+        //    }
     }
 }
